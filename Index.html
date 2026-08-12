@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbershop | Loita Street</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0b;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0,0,0,0.94);
+      border-bottom: 1px solid #333;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #d4af37;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.8)),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      margin: 5px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .gold {
+      background: #d4af37;
+      color: #000;
+    }
+
+    .dark-btn {
+      border: 1px solid white;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: .9;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      text-transform: uppercase;
+    }
+
+    .section-title span {
+      color: #d4af37;
+    }
+
+    .about {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      color: #ccc;
+      font-size: 17px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      background: #151515;
+      padding: 30px 20px;
+      border: 1px solid #292929;
+      text-align: center;
+      border-radius: 8px;
+      transition: .3s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      border-color: #d4af37;
+    }
+
+    .service h3 {
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: #bbb;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 7px;
+      transition: .3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    .contact {
+      background: #151515;
+      text-align: center;
+      border-radius: 10px;
+      padding: 50px 20px;
+    }
+
+    .contact p {
+      margin: 12px 0;
+      color: #ccc;
+    }
+
+    .contact strong {
+      color: #d4af37;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #050505;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 27px;
+      font-weight: bold;
+      z-index: 2000;
+      box-shadow: 0 5px 20px rgba(0,0,0,.5);
+    }
+
+    @media (max-width: 650px) {
+      nav a {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        letter-spacing: 2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">BARBER<span>SHOP</span></div>
+
+    <div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Look <span>Sharp.</span></h1>
+
+    <p>
+      Professional cuts. Clean fades. Fresh confidence.
+    </p>
+
+    <a class="btn gold" href="https://wa.me/254733590353?text=Hello%20I%20would%20like%20to%20book%20an%20appointment">
+      BOOK ON WHATSAPP
+    </a>
+
+    <a class="btn dark-btn" href="#services">
+      VIEW SERVICES
+    </a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title">
+    <h2>About <span>Us</span></h2>
+  </div>
+
+  <p class="about">
+    Welcome to our professional barbershop in the heart of Nairobi.
+    We provide quality haircuts, clean fades, beard grooming and
+    professional barbering in a comfortable environment.
+  </p>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our <span>Services</span></h2>
+  </div>
+
+  <div class="services">
+
+    <div class="service">
+      <h3>Classic Haircut</h3>
+      <p>Clean and professional haircut tailored to your style.</p>
+    </div>
+
+    <div class="service">
+      <h3>Skin Fade</h3>
+      <p>Sharp, clean and modern fade for a fresh look.</p>
+    </div>
+
+    <div class="service">
+      <h3>Beard Grooming</h3>
+      <p>Professional beard trimming, shaping and finishing.</p>
+    </div>
+
+    <div class="service">
+      <h3>Haircut + Beard</h3>
+      <p>The complete fresh-look package.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-title">
+    <h2>Our <span>Work</span></h2>
+  </div>
+
+  <div class="gallery">
+
+    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80" alt="Professional haircut">
+
+    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80" alt="Barber cutting hair">
+
+    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80" alt="Barbershop haircut">
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+
+    <div class="section-title">
+      <h2>Visit <span>Us</span></h2>
+    </div>
+
+    <p>📍 <strong>Location:</strong> Loita Street, Pension Building</p>
+
+    <p>🕐 <strong>Opening Hours:</strong> 8:00 AM – 8:00 PM</p>
+
+    <p>📞 <strong>Phone:</strong> 0733 590 353</p>
+
+    <br>
+
+    <a class="btn gold"
+       href="tel:+254733590353">
+       CALL NOW
+    </a>
+
+    <a class="btn gold"
+       href="https://wa.me/254733590353?text=Hello%20I%20would%20like%20to%20book%20an%20appointment">
+       WHATSAPP US
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Barbershop. All Rights Reserved.
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/254733590353?text=Hello%20I%20would%20like%20to%20book%20an%20appointment"
+   aria-label="WhatsApp">
+   ☎
+</a>
+
+</body>
+</html>
